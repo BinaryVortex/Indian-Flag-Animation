@@ -1,0 +1,115 @@
+:root{
+    --saffron: #FF9933;
+    --white: whitesmoke;
+    --green: #138808;
+    --blue: #000080;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 10px;
+    background-color: #ffc17f;
+}
+
+.main{
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    width: calc(30em + 6px);
+    height: 60vh;
+}
+
+.rod{
+    background-color: rgb(216, 88, 8);
+    height: 100%;
+    width: 6px;
+    border-radius: 3px 3px 0 0 ;
+    box-shadow: 0 0 12px 2px #CCC;
+    z-index: 10;
+}
+
+.flag{
+    position: absolute;
+    top: 8px;
+    box-shadow: 0 0 12px 2px #CCC;
+    border-radius: 5px;
+}
+
+.strip{
+    position: relative;
+    width: 30em;
+    height: 6em;
+    background-size: 200%;
+    overflow: hidden;
+    transition: 0.5s;
+    animation: wave 1.5s infinite;
+}
+
+.saffron{
+    background-image: linear-gradient(to right, var(--saffron), #ffc285, var(--saffron));
+    border-radius: 5px 5px 0 0;
+}
+.white{
+    background-image: linear-gradient(to right, var(--white), #e1e1e1, var(--white));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.green{
+    background-image: linear-gradient(to right, var(--green), #55f147, var(--green));
+    border-radius: 0px 0px 5px 5px;
+}
+
+.chakra{
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotate 10s linear infinite;
+}
+
+.chakra::after{
+    content: '';
+    height: 25%;
+    width: 25%;
+    border-radius: 50%;
+    border: 1px solid var(--white);
+    background-color: var(--blue);
+    z-index: 10;
+}
+
+.chakra .line{
+    list-style: none;
+    width: calc(100%);
+    border: 1px solid var(--blue);
+    position: absolute;
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes wave {
+    0%{
+        background-position: 120%;
+    }
+    100%{
+        background-position: -120%;
+    }
+}
